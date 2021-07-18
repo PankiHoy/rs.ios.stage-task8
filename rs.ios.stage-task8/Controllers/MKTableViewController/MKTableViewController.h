@@ -6,12 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKDrawingView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MKTableViewController : UIViewController
 
-@property (assign, nonatomic) NSString* currentDrawing;
+@property (strong, nonatomic) MKDrawingView *myDrawingView;
 
 @end
 

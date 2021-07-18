@@ -6,10 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorDelegate.h"
+#import "ParentColorTimerViewController.h"
+#import "MKDrawingView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MKColorViewController : UIViewController
+@interface MKColorViewController : ParentColorTimerViewController <ColorDelegate>
+
+@property (strong, nonatomic) MKDrawingView *myDrawingView;
 
 @end
 

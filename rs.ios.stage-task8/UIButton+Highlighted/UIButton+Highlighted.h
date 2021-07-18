@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIButton (Highlighted)
 
--(void)changeToHighlighted:(BOOL)check;
+-(void)setHighlighted;
+-(void)setDisabled;
+-(void)setDefault;
+-(void)setHighlightedColorButton;
+-(void)setDefaultColorButton:(UIColor *)color;
 
 @end
 

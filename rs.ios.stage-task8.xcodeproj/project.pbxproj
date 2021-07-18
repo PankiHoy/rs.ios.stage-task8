@@ -17,6 +17,10 @@
 		FA14B4A726A0DC3900A51EE9 /* MKColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B4A626A0DC3900A51EE9 /* MKColorViewController.m */; };
 		FA14B4AD26A0F8C000A51EE9 /* MKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B4AC26A0F8C000A51EE9 /* MKMainViewController.m */; };
 		FA75630C26A112F0005B348D /* UIButton+Highlighted.m in Sources */ = {isa = PBXBuildFile; fileRef = FA75630B26A112F0005B348D /* UIButton+Highlighted.m */; };
+		FA75631626A203B7005B348D /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA75631526A203B7005B348D /* ColorButton.m */; };
+		FA7F604126A32AB00078B394 /* MKDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604026A32AB00078B394 /* MKDrawingView.m */; };
+		FA7F604626A346BA0078B394 /* MKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604526A346BA0078B394 /* MKTimerViewController.m */; };
+		FA7F604E26A3A2990078B394 /* ParentColorTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604D26A3A2990078B394 /* ParentColorTimerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,15 @@
 		FA14B4AC26A0F8C000A51EE9 /* MKMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKMainViewController.m; sourceTree = "<group>"; };
 		FA75630A26A112F0005B348D /* UIButton+Highlighted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Highlighted.h"; sourceTree = "<group>"; };
 		FA75630B26A112F0005B348D /* UIButton+Highlighted.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Highlighted.m"; sourceTree = "<group>"; };
+		FA75631426A203B7005B348D /* ColorButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorButton.h; sourceTree = "<group>"; };
+		FA75631526A203B7005B348D /* ColorButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorButton.m; sourceTree = "<group>"; };
+		FA75631B26A209E8005B348D /* ColorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorDelegate.h; sourceTree = "<group>"; };
+		FA7F603F26A32AB00078B394 /* MKDrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKDrawingView.h; sourceTree = "<group>"; };
+		FA7F604026A32AB00078B394 /* MKDrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKDrawingView.m; sourceTree = "<group>"; };
+		FA7F604426A346BA0078B394 /* MKTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTimerViewController.h; sourceTree = "<group>"; };
+		FA7F604526A346BA0078B394 /* MKTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTimerViewController.m; sourceTree = "<group>"; };
+		FA7F604C26A3A2990078B394 /* ParentColorTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentColorTimerViewController.h; sourceTree = "<group>"; };
+		FA7F604D26A3A2990078B394 /* ParentColorTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentColorTimerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +82,8 @@
 		FA14B47A26A0CBB100A51EE9 /* rs.ios.stage-task8 */ = {
 			isa = PBXGroup;
 			children = (
+				FA7F603C26A32A790078B394 /* UIButton+Highlighted */,
+				FA75631026A1EBB8005B348D /* Views */,
 				FA14B49926A0D4AC00A51EE9 /* Controllers */,
 				FA14B49426A0CFAA00A51EE9 /* Fonts */,
 				FA14B47B26A0CBB100A51EE9 /* AppDelegate.h */,
@@ -93,6 +108,8 @@
 		FA14B49926A0D4AC00A51EE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA7F604B26A3A2830078B394 /* ParentColorTimerViewController */,
+				FA7F604326A3469F0078B394 /* MKTimerViewController */,
 				FA14B4A026A0DB6700A51EE9 /* MKTableViewController */,
 				FA14B4A426A0DC2400A51EE9 /* MKColorViewController */,
 				FA14B4AA26A0F8AD00A51EE9 /* MKMainViewController */,
@@ -105,8 +122,6 @@
 			children = (
 				FA14B4A126A0DB9000A51EE9 /* MKTableViewController.h */,
 				FA14B4A226A0DB9000A51EE9 /* MKTableViewController.m */,
-				FA75630A26A112F0005B348D /* UIButton+Highlighted.h */,
-				FA75630B26A112F0005B348D /* UIButton+Highlighted.m */,
 			);
 			path = MKTableViewController;
 			sourceTree = "<group>";
@@ -127,6 +142,69 @@
 				FA14B4AC26A0F8C000A51EE9 /* MKMainViewController.m */,
 			);
 			path = MKMainViewController;
+			sourceTree = "<group>";
+		};
+		FA75631026A1EBB8005B348D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F603E26A32A9F0078B394 /* DrawingView */,
+				FA7F603D26A32A920078B394 /* ColorButton */,
+				FA75631A26A209D4005B348D /* ColorDelegate */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA75631A26A209D4005B348D /* ColorDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA75631B26A209E8005B348D /* ColorDelegate.h */,
+			);
+			path = ColorDelegate;
+			sourceTree = "<group>";
+		};
+		FA7F603C26A32A790078B394 /* UIButton+Highlighted */ = {
+			isa = PBXGroup;
+			children = (
+				FA75630A26A112F0005B348D /* UIButton+Highlighted.h */,
+				FA75630B26A112F0005B348D /* UIButton+Highlighted.m */,
+			);
+			path = "UIButton+Highlighted";
+			sourceTree = "<group>";
+		};
+		FA7F603D26A32A920078B394 /* ColorButton */ = {
+			isa = PBXGroup;
+			children = (
+				FA75631426A203B7005B348D /* ColorButton.h */,
+				FA75631526A203B7005B348D /* ColorButton.m */,
+			);
+			path = ColorButton;
+			sourceTree = "<group>";
+		};
+		FA7F603E26A32A9F0078B394 /* DrawingView */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F603F26A32AB00078B394 /* MKDrawingView.h */,
+				FA7F604026A32AB00078B394 /* MKDrawingView.m */,
+			);
+			path = DrawingView;
+			sourceTree = "<group>";
+		};
+		FA7F604326A3469F0078B394 /* MKTimerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F604426A346BA0078B394 /* MKTimerViewController.h */,
+				FA7F604526A346BA0078B394 /* MKTimerViewController.m */,
+			);
+			path = MKTimerViewController;
+			sourceTree = "<group>";
+		};
+		FA7F604B26A3A2830078B394 /* ParentColorTimerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F604C26A3A2990078B394 /* ParentColorTimerViewController.h */,
+				FA7F604D26A3A2990078B394 /* ParentColorTimerViewController.m */,
+			);
+			path = ParentColorTimerViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +279,10 @@
 			files = (
 				FA14B4A726A0DC3900A51EE9 /* MKColorViewController.m in Sources */,
 				FA75630C26A112F0005B348D /* UIButton+Highlighted.m in Sources */,
+				FA7F604126A32AB00078B394 /* MKDrawingView.m in Sources */,
+				FA7F604E26A3A2990078B394 /* ParentColorTimerViewController.m in Sources */,
+				FA75631626A203B7005B348D /* ColorButton.m in Sources */,
+				FA7F604626A346BA0078B394 /* MKTimerViewController.m in Sources */,
 				FA14B4A326A0DB9000A51EE9 /* MKTableViewController.m in Sources */,
 				FA14B47D26A0CBB100A51EE9 /* AppDelegate.m in Sources */,
 				FA14B4AD26A0F8C000A51EE9 /* MKMainViewController.m in Sources */,
