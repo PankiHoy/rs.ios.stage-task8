@@ -13,7 +13,6 @@
 		FA14B48E26A0CBB300A51EE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B48D26A0CBB300A51EE9 /* main.m */; };
 		FA14B49726A0CFAA00A51EE9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA14B49526A0CFAA00A51EE9 /* Montserrat-Medium.ttf */; };
 		FA14B49826A0CFAA00A51EE9 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA14B49626A0CFAA00A51EE9 /* Montserrat-Regular.ttf */; };
-		FA14B4A326A0DB9000A51EE9 /* MKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B4A226A0DB9000A51EE9 /* MKTableViewController.m */; };
 		FA14B4A726A0DC3900A51EE9 /* MKColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B4A626A0DC3900A51EE9 /* MKColorViewController.m */; };
 		FA14B4AD26A0F8C000A51EE9 /* MKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA14B4AC26A0F8C000A51EE9 /* MKMainViewController.m */; };
 		FA75630C26A112F0005B348D /* UIButton+Highlighted.m in Sources */ = {isa = PBXBuildFile; fileRef = FA75630B26A112F0005B348D /* UIButton+Highlighted.m */; };
@@ -21,6 +20,8 @@
 		FA7F604126A32AB00078B394 /* MKDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604026A32AB00078B394 /* MKDrawingView.m */; };
 		FA7F604626A346BA0078B394 /* MKTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604526A346BA0078B394 /* MKTimerViewController.m */; };
 		FA7F604E26A3A2990078B394 /* ParentColorTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7F604D26A3A2990078B394 /* ParentColorTimerViewController.m */; };
+		FA7F605226A470540078B394 /* MKDrawingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7F605126A470540078B394 /* MKDrawingsViewController.swift */; };
+		FA7F605526A482E50078B394 /* MKTimerSwiftControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7F605426A482E50078B394 /* MKTimerSwiftControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +34,6 @@
 		FA14B48D26A0CBB300A51EE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA14B49526A0CFAA00A51EE9 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		FA14B49626A0CFAA00A51EE9 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		FA14B4A126A0DB9000A51EE9 /* MKTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKTableViewController.h; sourceTree = "<group>"; };
-		FA14B4A226A0DB9000A51EE9 /* MKTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTableViewController.m; sourceTree = "<group>"; };
 		FA14B4A526A0DC3900A51EE9 /* MKColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKColorViewController.h; sourceTree = "<group>"; };
 		FA14B4A626A0DC3900A51EE9 /* MKColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKColorViewController.m; sourceTree = "<group>"; };
 		FA14B4AB26A0F8C000A51EE9 /* MKMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKMainViewController.h; sourceTree = "<group>"; };
@@ -50,6 +49,10 @@
 		FA7F604526A346BA0078B394 /* MKTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKTimerViewController.m; sourceTree = "<group>"; };
 		FA7F604C26A3A2990078B394 /* ParentColorTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentColorTimerViewController.h; sourceTree = "<group>"; };
 		FA7F604D26A3A2990078B394 /* ParentColorTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentColorTimerViewController.m; sourceTree = "<group>"; };
+		FA7F605026A470540078B394 /* rs.ios.stage-task8-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rs.ios.stage-task8-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA7F605126A470540078B394 /* MKDrawingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDrawingsViewController.swift; sourceTree = "<group>"; };
+		FA7F605426A482E50078B394 /* MKTimerSwiftControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKTimerSwiftControllerViewController.swift; sourceTree = "<group>"; };
+		FA7F605726A498F90078B394 /* PaintingDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintingDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,22 +111,14 @@
 		FA14B49926A0D4AC00A51EE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA7F605326A482B20078B394 /* MKTimerSwiftController */,
+				FA7F604F26A4703A0078B394 /* MKDrawingsViewController */,
 				FA7F604B26A3A2830078B394 /* ParentColorTimerViewController */,
 				FA7F604326A3469F0078B394 /* MKTimerViewController */,
-				FA14B4A026A0DB6700A51EE9 /* MKTableViewController */,
 				FA14B4A426A0DC2400A51EE9 /* MKColorViewController */,
 				FA14B4AA26A0F8AD00A51EE9 /* MKMainViewController */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		FA14B4A026A0DB6700A51EE9 /* MKTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FA14B4A126A0DB9000A51EE9 /* MKTableViewController.h */,
-				FA14B4A226A0DB9000A51EE9 /* MKTableViewController.m */,
-			);
-			path = MKTableViewController;
 			sourceTree = "<group>";
 		};
 		FA14B4A426A0DC2400A51EE9 /* MKColorViewController */ = {
@@ -147,6 +142,7 @@
 		FA75631026A1EBB8005B348D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA7F605626A498E60078B394 /* PaintingDelegate */,
 				FA7F603E26A32A9F0078B394 /* DrawingView */,
 				FA7F603D26A32A920078B394 /* ColorButton */,
 				FA75631A26A209D4005B348D /* ColorDelegate */,
@@ -207,6 +203,31 @@
 			path = ParentColorTimerViewController;
 			sourceTree = "<group>";
 		};
+		FA7F604F26A4703A0078B394 /* MKDrawingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F605026A470540078B394 /* rs.ios.stage-task8-Bridging-Header.h */,
+				FA7F605126A470540078B394 /* MKDrawingsViewController.swift */,
+			);
+			path = MKDrawingsViewController;
+			sourceTree = "<group>";
+		};
+		FA7F605326A482B20078B394 /* MKTimerSwiftController */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F605426A482E50078B394 /* MKTimerSwiftControllerViewController.swift */,
+			);
+			path = MKTimerSwiftController;
+			sourceTree = "<group>";
+		};
+		FA7F605626A498E60078B394 /* PaintingDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA7F605726A498F90078B394 /* PaintingDelegate.h */,
+			);
+			path = PaintingDelegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,6 +258,7 @@
 				TargetAttributes = {
 					FA14B47726A0CBB100A51EE9 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -279,11 +301,12 @@
 			files = (
 				FA14B4A726A0DC3900A51EE9 /* MKColorViewController.m in Sources */,
 				FA75630C26A112F0005B348D /* UIButton+Highlighted.m in Sources */,
+				FA7F605526A482E50078B394 /* MKTimerSwiftControllerViewController.swift in Sources */,
 				FA7F604126A32AB00078B394 /* MKDrawingView.m in Sources */,
 				FA7F604E26A3A2990078B394 /* ParentColorTimerViewController.m in Sources */,
 				FA75631626A203B7005B348D /* ColorButton.m in Sources */,
 				FA7F604626A346BA0078B394 /* MKTimerViewController.m in Sources */,
-				FA14B4A326A0DB9000A51EE9 /* MKTableViewController.m in Sources */,
+				FA7F605226A470540078B394 /* MKDrawingsViewController.swift in Sources */,
 				FA14B47D26A0CBB100A51EE9 /* AppDelegate.m in Sources */,
 				FA14B4AD26A0F8C000A51EE9 /* MKMainViewController.m in Sources */,
 				FA14B48E26A0CBB300A51EE9 /* main.m in Sources */,
@@ -355,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -408,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -421,6 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J5KZWD7PSW;
 				INFOPLIST_FILE = "rs.ios.stage-task8/Info.plist";
@@ -431,6 +455,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MK.rs-ios-stage-task8";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Controllers/MKDrawingsViewController/rs.ios.stage-task8-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -440,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J5KZWD7PSW;
 				INFOPLIST_FILE = "rs.ios.stage-task8/Info.plist";
@@ -450,6 +478,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "MK.rs-ios-stage-task8";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task8/Controllers/MKDrawingsViewController/rs.ios.stage-task8-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

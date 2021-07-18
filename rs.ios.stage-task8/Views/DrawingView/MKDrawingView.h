@@ -6,13 +6,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKMainViewController.h"
+#import "PaintingDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MKDrawingView : UIView
 
 @property (assign, nonatomic) NSNumber *currentDrawing;
+@property (assign, nonatomic) NSTimeInterval duration;
 @property (strong, nonatomic) NSMutableArray <UIButton *> *colorPalette;
+
+@property (weak, nonatomic) MKMainViewController <PaintingDelegate> *delegate;
 
 @end
 

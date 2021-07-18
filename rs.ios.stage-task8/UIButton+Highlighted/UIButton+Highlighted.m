@@ -15,11 +15,14 @@
 
 -(void)setDisabled {
     self.alpha = 0.5;
+    [self setEnabled:NO];
     [self addShadowWithRadius:1.0f andColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.25]];
 }
 
 -(void)setDefault {
     [self addShadowWithRadius:1.0f andColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.25]];
+    [self setEnabled:YES];
+    self.alpha = 1;
 }
 
 -(void)addShadowWithRadius:(CGFloat)radius andColor:(UIColor *)color{

@@ -6,17 +6,24 @@
 //
 
 #import "MKMainViewController.h"
-#import "MKTableViewController.h"
-#import "MKColorViewController.h"
 #import "UIButton+Highlighted.h"
 #import "MKDrawingView.h"
+#import "MKColorViewController.h"
 #import "MKTimerViewController.h"
+#import "rs_ios_stage_task8-Swift.h"
+
 
 @interface MKMainViewController ()
 
-@property (strong, nonatomic) MKTableViewController *drawings;
+@property (strong, nonatomic) MKDrawingsSwiftController *drawings;
 @property (strong, nonatomic) MKColorViewController *colorController;
-@property (strong, nonatomic) MKTimerViewController *timerController;
+@property (strong, nonatomic) MKTimerSwiftController *timerController;
+@property (strong, nonatomic) MKDrawingView *myDrawing;
+
+@property (strong, nonatomic) UIButton *paletteButton;
+@property (strong, nonatomic) UIButton *drawButton;
+@property (strong, nonatomic) UIButton *timerButton;
+@property (strong, nonatomic) UIButton *shareButton;
 
 @property (assign, nonatomic) BOOL isfirstAppeareanceExecutionDone;
 
@@ -27,13 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setTintColor:[UIColor colorNamed:@"Light Green Sea"]];
-    self.drawings = [[MKTableViewController alloc] init];
+    self.drawings = [[MKDrawingsSwiftController alloc] init];
     self.colorController = [[MKColorViewController alloc] init];
+    self.timerController = [[MKTimerSwiftController alloc] init];
     [self setup];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 -(void)setup {
@@ -42,10 +46,12 @@
     
 #pragma mark - Drawing View setup
     
-    MKDrawingView *drawingView = [[MKDrawingView alloc] initWithFrame:CGRectMake(38, 104, 300, 300)];
-    self.drawings.myDrawingView = drawingView;
-    self.colorController.myDrawingView = drawingView;
-    [self.view addSubview:drawingView];
+    self.myDrawing = [[MKDrawingView alloc] initWithFrame:CGRectMake(38, 104, 300, 300)];
+    self.colorController.myDrawingView = self.myDrawing;
+    self.drawings.myDrawingView = self.myDrawing;
+    self.timerController.myDrawingView = self.myDrawing;
+    self.myDrawing.delegate = self;
+    [self.view addSubview:self.myDrawing];
     
 }
 
@@ -68,50 +74,50 @@
 }
 
 -(void)configureButtons {
-    UIButton *paletteButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 452, 163, 32)];
-    UIButton *drawButton = [[UIButton alloc] initWithFrame:CGRectMake(243, 452, 91, 32)];
-    UIButton *timerButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 504, 151, 32)];
-    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(239, 504, 95, 32)];
+    self.paletteButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 452, 163, 32)];
+    self.drawButton = [[UIButton alloc] initWithFrame:CGRectMake(243, 452, 91, 32)];
+    self.timerButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 504, 151, 32)];
+    self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(239, 504, 95, 32)];
     
-    [paletteButton setDefault];
-    [drawButton setDefault];
-    [timerButton setDefault];
-    [shareButton setDefault];
+    [self.paletteButton setDefault];
+    [self.drawButton setDefault];
+    [self.timerButton setDefault];
+    [self.shareButton setDefault];
     
-    [paletteButton.layer setCornerRadius:10];
-    [drawButton.layer setCornerRadius:10];
-    [timerButton.layer setCornerRadius:10];
-    [shareButton.layer setCornerRadius:10];
+    [self.paletteButton.layer setCornerRadius:10];
+    [self.drawButton.layer setCornerRadius:10];
+    [self.timerButton.layer setCornerRadius:10];
+    [self.shareButton.layer setCornerRadius:10];
     
-    [paletteButton setTitle:@"Open Palette" forState:UIControlStateNormal];
-    [drawButton setTitle:@"Draw" forState:UIControlStateNormal];
-    [timerButton setTitle:@"Timer" forState:UIControlStateNormal];
-    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [self.paletteButton setTitle:@"Open Palette" forState:UIControlStateNormal];
+    [self.drawButton setTitle:@"Draw" forState:UIControlStateNormal];
+    [self.timerButton setTitle:@"Timer" forState:UIControlStateNormal];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
     
-    [paletteButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
-    [drawButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
-    [timerButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
-    [shareButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
+    [self.paletteButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
+    [self.drawButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
+    [self.timerButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
+    [self.shareButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
     
-    [paletteButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
-    [drawButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
-    [timerButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
-    [shareButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
+    [self.paletteButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
+    [self.drawButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
+    [self.timerButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
+    [self.shareButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
     
-    [paletteButton addTarget:self action:@selector(openPalette:) forControlEvents:UIControlEventTouchUpInside];
-    [drawButton addTarget:self action:@selector(drawPainting:) forControlEvents:UIControlEventTouchUpInside];
-    [timerButton addTarget:self action:@selector(openTimer:) forControlEvents:UIControlEventTouchUpInside];
-    [shareButton addTarget:self action:@selector(sharePainting:) forControlEvents:UIControlEventTouchUpInside];
+    [self.paletteButton addTarget:self action:@selector(openPalette:) forControlEvents:UIControlEventTouchUpInside];
+    [self.drawButton addTarget:self action:@selector(drawPainting:) forControlEvents:UIControlEventTouchUpInside];
+    [self.timerButton addTarget:self action:@selector(openTimer:) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton addTarget:self action:@selector(sharePainting:) forControlEvents:UIControlEventTouchUpInside];
     
-    [paletteButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
-    [drawButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
-    [timerButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
-    [shareButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
+    [self.paletteButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
+    [self.drawButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
+    [self.timerButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
+    [self.shareButton addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
     
-    [self.view addSubview:paletteButton];
-    [self.view addSubview:drawButton];
-    [self.view addSubview:timerButton];
-    [self.view addSubview:shareButton];
+    [self.view addSubview:self.paletteButton];
+    [self.view addSubview:self.drawButton];
+    [self.view addSubview:self.timerButton];
+    [self.view addSubview:self.shareButton];
 }
 
 -(void)addContentController:(UIViewController *)content {
@@ -132,7 +138,18 @@
 
 -(void)drawPainting:(UIButton *)sender {
     [sender setDefault];
-    [self.drawings.myDrawingView setNeedsDisplay];
+    [self.myDrawing setNeedsDisplay];
+}
+
+-(void)changeToResetButton:(BOOL)check {
+    if (check) {
+        [self.drawButton setTitle:@"Reset" forState:UIControlStateNormal];
+        [self.drawButton addTarget:self action:@selector(resetDrawing) forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [self.drawButton setTitle:@"Draw" forState:UIControlStateNormal];
+        [self.drawButton removeTarget:self action:@selector(resetDrawing) forControlEvents:UIControlEventTouchUpInside];
+        [self.drawButton addTarget:self action:@selector(drawPainting:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 -(void)openTimer:(UIButton *)sender {
@@ -150,18 +167,41 @@
 }
 
 -(void)share:(UIButton *)sender {
-    CGRect rect = [self.drawings.myDrawingView bounds];
+    CGRect rect = [self.myDrawing bounds];
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.drawings.myDrawingView.layer renderInContext:context];
+    [self.myDrawing.layer renderInContext:context];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSArray *activityItems = @[img];
     UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+//    activityViewControntroller.view.appearance
     activityViewControntroller.excludedActivityTypes = @[];
     activityViewControntroller.popoverPresentationController.sourceView = self.view;
     activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
     [self presentViewController:activityViewControntroller animated:YES completion:nil];
+}
+
+-(void)paintingIsDrawing:(BOOL)check {
+    if (check) {
+        [self.paletteButton setDisabled];
+        [self changeToResetButton:YES];
+        [self.timerButton setDisabled];
+        [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+        self.navigationController.navigationBar.alpha = 0.5;
+    } else {
+        [self.paletteButton setDefault];
+        [self changeToResetButton:NO];
+        [self.timerButton setDefault];
+        [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+        self.navigationController.navigationBar.alpha = 1;
+    }
+}
+
+-(void)resetDrawing {
+    self.myDrawing.currentDrawing = @0;
+    [self.drawings setAllButtonsDefault];
+    [self paintingIsDrawing:NO];
 }
 
 @end
