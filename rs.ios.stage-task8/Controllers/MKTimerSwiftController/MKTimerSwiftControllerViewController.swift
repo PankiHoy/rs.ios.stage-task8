@@ -11,6 +11,7 @@ class MKTimerSwiftController: ParentColorTimerViewController {
     let label: UILabel = UILabel(frame: CGRect(x: 162, y: 161, width: 52, height: 22));
     let minimumLabel: UILabel = UILabel(frame: CGRect(x: 26, y: 103, width: 7, height: 22));
     let maximumLabel: UILabel = UILabel(frame: CGRect(x: 338, y: 103, width: 11, height: 22));
+    @objc var timer = Timer();
     
     @objc var myDrawingView:MKDrawingView = MKDrawingView();
 
@@ -18,7 +19,6 @@ class MKTimerSwiftController: ParentColorTimerViewController {
         super.viewDidLoad()
         self.setup();
     }
-   
     
     func setup() {
         let slider: UISlider = UISlider(frame: CGRect(x: 74, y: 112, width: 223, height: 4));
@@ -45,7 +45,6 @@ class MKTimerSwiftController: ParentColorTimerViewController {
         label.font = UIFont(name: "Montserrat-Regular", size: 18.0);
         label.text = String(format: "%0.02f", sender.value);
         label.textAlignment = .center;
-        self.myDrawingView.duration = Double(sender.value);
+        self.myDrawingView.progress = 1.0/(60.0 * sender.value);
     }
-
 }

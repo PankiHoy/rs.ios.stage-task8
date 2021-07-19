@@ -29,17 +29,17 @@
     self.view.layer.cornerRadius = 35;
     
     UIView *buttonView = [[UIView alloc] initWithFrame:CGRectMake(250, 20, 85, 32)];
-    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 85, 32)];
-    [saveButton setTitle:@"Save" forState:UIControlStateNormal];
-    [saveButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
-    [saveButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
+    self.saveButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 85, 32)];
+    [self.saveButton setTitle:@"Save" forState:UIControlStateNormal];
+    [self.saveButton setTitleColor:[UIColor colorNamed:@"Light Green Sea"] forState:UIControlStateNormal];
+    [self.saveButton.titleLabel setFont:[UIFont fontWithName:@"Montserrat-Medium" size:18.0f]];
     
-    [saveButton.layer setCornerRadius:10.0f];
-    [saveButton setDefault];
-    [buttonView addSubview:saveButton];
+    [self.saveButton.layer setCornerRadius:10.0f];
+    [self.saveButton setDefault];
+    [buttonView addSubview:self.saveButton];
     
-    [saveButton addTarget:self action:@selector(saveColor:) forControlEvents:UIControlEventTouchUpInside];
-    [saveButton addTarget:self action:@selector(touchDownSave:) forControlEvents:UIControlEventTouchDown];
+    [self.saveButton addTarget:self action:@selector(saveColor:) forControlEvents:UIControlEventTouchUpInside];
+    [self.saveButton addTarget:self action:@selector(touchDownSave:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:buttonView];
 }
 

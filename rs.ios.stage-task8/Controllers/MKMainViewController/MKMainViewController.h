@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "PaintingDelegate.h"
 
-@class MKDrawingsViewController;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MKMainViewController : UIViewController <PaintingDelegate>
+
+@property (strong, nonatomic) UIButton *drawButton;
 
 @end
 

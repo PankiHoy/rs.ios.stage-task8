@@ -14,10 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MKDrawingView : UIView
 
 @property (assign, nonatomic) NSNumber *currentDrawing;
-@property (assign, nonatomic) NSTimeInterval duration;
+@property (assign, nonatomic) float progress;
 @property (strong, nonatomic) NSMutableArray <UIButton *> *colorPalette;
-
 @property (weak, nonatomic) MKMainViewController <PaintingDelegate> *delegate;
+
+-(void)changeStrokeEnd;
+
 
 @end
 

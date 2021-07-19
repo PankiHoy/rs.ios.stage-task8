@@ -9,7 +9,6 @@
 #import "UIButton+Highlighted.h"
 #import "MKDrawingView.h"
 #import "MKColorViewController.h"
-#import "MKTimerViewController.h"
 #import "rs_ios_stage_task8-Swift.h"
 
 
@@ -21,7 +20,6 @@
 @property (strong, nonatomic) MKDrawingView *myDrawing;
 
 @property (strong, nonatomic) UIButton *paletteButton;
-@property (strong, nonatomic) UIButton *drawButton;
 @property (strong, nonatomic) UIButton *timerButton;
 @property (strong, nonatomic) UIButton *shareButton;
 
@@ -48,8 +46,9 @@
     
     self.myDrawing = [[MKDrawingView alloc] initWithFrame:CGRectMake(38, 104, 300, 300)];
     self.colorController.myDrawingView = self.myDrawing;
-    self.drawings.myDrawingView = self.myDrawing;
     self.timerController.myDrawingView = self.myDrawing;
+    self.drawings.myDrawingView = self.myDrawing;
+    self.drawings.delegate = self;
     self.myDrawing.delegate = self;
     [self.view addSubview:self.myDrawing];
     
@@ -80,9 +79,9 @@
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(239, 504, 95, 32)];
     
     [self.paletteButton setDefault];
-    [self.drawButton setDefault];
+    [self.drawButton setDisabled];
     [self.timerButton setDefault];
-    [self.shareButton setDefault];
+    [self.shareButton setDisabled];
     
     [self.paletteButton.layer setCornerRadius:10];
     [self.drawButton.layer setCornerRadius:10];
@@ -175,7 +174,6 @@
     UIGraphicsEndImageContext();
     NSArray *activityItems = @[img];
     UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-//    activityViewControntroller.view.appearance
     activityViewControntroller.excludedActivityTypes = @[];
     activityViewControntroller.popoverPresentationController.sourceView = self.view;
     activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
@@ -183,13 +181,21 @@
 }
 
 -(void)paintingIsDrawing:(BOOL)check {
+    float timeIntervalForProgress = 1.0/60.0;
+    NSTimer *timerForProgress = [NSTimer scheduledTimerWithTimeInterval:timeIntervalForProgress
+                                                                 target:self.myDrawing
+                                                               selector:@selector(changeStrokeEnd)
+                                                               userInfo:nil
+                                                                repeats:true];
     if (check) {
         [self.paletteButton setDisabled];
         [self changeToResetButton:YES];
         [self.timerButton setDisabled];
+        [self.shareButton setDefault];
         [self.navigationController.navigationBar setUserInteractionEnabled:NO];
         self.navigationController.navigationBar.alpha = 0.5;
     } else {
+        [timerForProgress invalidate];
         [self.paletteButton setDefault];
         [self changeToResetButton:NO];
         [self.timerButton setDefault];
@@ -202,6 +208,8 @@
     self.myDrawing.currentDrawing = @0;
     [self.drawings setAllButtonsDefault];
     [self paintingIsDrawing:NO];
+    [self.shareButton setDisabled];
+    [self.drawButton setDisabled];
 }
 
 @end

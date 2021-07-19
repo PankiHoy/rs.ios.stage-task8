@@ -9,6 +9,8 @@ import UIKit
 
 class MKDrawingsSwiftController: UIViewController {
     var helpDict: Dictionary = ["Planet": 1, "Head": 2, "Tree": 3, "Landscape": 4];
+    
+    @objc var delegate: MKMainViewController = MKMainViewController();
     @objc var myDrawingView: MKDrawingView = MKDrawingView();
     
     var planetDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40));
@@ -98,6 +100,7 @@ class MKDrawingsSwiftController: UIViewController {
                 self .back(sender: sender)
             }
         }
+        self.delegate.drawButton .setDefault();
     }
     
     @objc func buttonTouchedDown(sender: UIButton) {
