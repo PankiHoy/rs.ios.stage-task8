@@ -18,12 +18,14 @@
 @property (strong, nonatomic) MKColorViewController *colorController;
 @property (strong, nonatomic) MKTimerSwiftController *timerController;
 @property (strong, nonatomic) MKDrawingView *myDrawing;
+@property NSRunLoop *runLoop;
+@property NSRunLoopMode runLoopMode;
 
 @property (strong, nonatomic) UIButton *paletteButton;
 @property (strong, nonatomic) UIButton *timerButton;
 @property (strong, nonatomic) UIButton *shareButton;
 
-@property (assign, nonatomic) BOOL isfirstAppeareanceExecutionDone;
+@property (assign, nonatomic) BOOL isfirstAppeareance;
 
 @end
 
@@ -35,15 +37,13 @@
     self.drawings = [[MKDrawingsSwiftController alloc] init];
     self.colorController = [[MKColorViewController alloc] init];
     self.timerController = [[MKTimerSwiftController alloc] init];
+    self.isfirstAppeareance = YES;
     [self setup];
 }
 
 -(void)setup {
     [self configureNavigationBar];
     [self configureButtons];
-    
-#pragma mark - Drawing View setup
-    
     self.myDrawing = [[MKDrawingView alloc] initWithFrame:CGRectMake(38, 104, 300, 300)];
     self.colorController.myDrawingView = self.myDrawing;
     self.timerController.myDrawingView = self.myDrawing;
@@ -51,7 +51,6 @@
     self.drawings.delegate = self;
     self.myDrawing.delegate = self;
     [self.view addSubview:self.myDrawing];
-    
 }
 
 -(void)configureNavigationBar {
@@ -79,7 +78,7 @@
     self.shareButton = [[UIButton alloc] initWithFrame:CGRectMake(239, 504, 95, 32)];
     
     [self.paletteButton setDefault];
-    [self.drawButton setDisabled];
+    [self.drawButton setDefault];
     [self.timerButton setDefault];
     [self.shareButton setDisabled];
     
@@ -136,8 +135,17 @@
 }
 
 -(void)drawPainting:(UIButton *)sender {
+    if ([self.myDrawing.currentDrawing isEqual:@0] || self.myDrawing.currentDrawing == nil) {
+        if (self.isfirstAppeareance) {
+            [self.drawings buttonTouchedUpWithSender:self.drawings.headDrawing];
+        } else {
+            self.myDrawing.currentDrawing = self.myDrawing.previousDrawing;
+        }
+    }
     [sender setDefault];
     [self.myDrawing setNeedsDisplay];
+    self.myDrawing.previousDrawing = self.myDrawing.currentDrawing;
+    self.isfirstAppeareance = false;
 }
 
 -(void)changeToResetButton:(BOOL)check {
@@ -182,7 +190,7 @@
 
 -(void)paintingIsDrawing:(BOOL)check {
     float timeIntervalForProgress = 1.0/60.0;
-    NSTimer *timerForProgress = [NSTimer scheduledTimerWithTimeInterval:timeIntervalForProgress
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:timeIntervalForProgress
                                                                  target:self.myDrawing
                                                                selector:@selector(changeStrokeEnd)
                                                                userInfo:nil
@@ -195,7 +203,7 @@
         [self.navigationController.navigationBar setUserInteractionEnabled:NO];
         self.navigationController.navigationBar.alpha = 0.5;
     } else {
-        [timerForProgress invalidate];
+        [self.timer invalidate];
         [self.paletteButton setDefault];
         [self changeToResetButton:NO];
         [self.timerButton setDefault];
@@ -209,7 +217,6 @@
     [self.drawings setAllButtonsDefault];
     [self paintingIsDrawing:NO];
     [self.shareButton setDisabled];
-    [self.drawButton setDisabled];
 }
 
 @end

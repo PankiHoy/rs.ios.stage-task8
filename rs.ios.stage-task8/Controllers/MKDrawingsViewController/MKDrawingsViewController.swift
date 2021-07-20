@@ -14,7 +14,7 @@ class MKDrawingsSwiftController: UIViewController {
     @objc var myDrawingView: MKDrawingView = MKDrawingView();
     
     var planetDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 40));
-    var headDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 55, width: 200, height: 40));
+    @objc var headDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 55, width: 200, height: 40));
     var treeDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 110, width: 200, height: 40));
     var landscapeDrawing: UIButton = UIButton(frame: CGRect(x: 0, y: 165, width: 200, height: 40));
 

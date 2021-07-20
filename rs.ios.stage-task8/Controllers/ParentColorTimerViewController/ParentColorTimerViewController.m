@@ -46,6 +46,7 @@
 -(void)saveColor:(UIButton *)sender {
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [sender setDefault];
     NSLog(@"Save Color");
 }
