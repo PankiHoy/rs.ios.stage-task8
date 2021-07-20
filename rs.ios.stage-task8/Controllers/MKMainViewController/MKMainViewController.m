@@ -137,7 +137,7 @@
 -(void)drawPainting:(UIButton *)sender {
     if ([self.myDrawing.currentDrawing isEqual:@0] || self.myDrawing.currentDrawing == nil) {
         if (self.isfirstAppeareance) {
-            [self.drawings buttonTouchedUpWithSender:self.drawings.headDrawing];
+            self.myDrawing.currentDrawing = @2;
         } else {
             self.myDrawing.currentDrawing = self.myDrawing.previousDrawing;
         }
