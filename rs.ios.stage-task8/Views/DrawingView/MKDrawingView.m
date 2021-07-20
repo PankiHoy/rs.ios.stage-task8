@@ -99,6 +99,7 @@
         
         if (layer.strokeEnd > 1) {
             [self.delegate.timer invalidate];
+            self.delegate.timer = nil;
         }
     }
 }

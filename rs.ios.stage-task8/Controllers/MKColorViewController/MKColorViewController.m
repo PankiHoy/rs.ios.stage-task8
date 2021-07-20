@@ -63,16 +63,13 @@
 
 -(void)putColorInStack:(UIButton *)sender {
     if ([self.myDrawingView.colorPalette containsObject:sender]) {
+        [sender setDefaultColorButton:sender.backgroundColor];
         [UIView animateWithDuration:0.3 animations:^{
-            [sender setDefaultColorButton:sender.backgroundColor];
             [self.view setBackgroundColor:[UIColor whiteColor]];
         }];
         [self.myDrawingView.colorPalette removeObject:sender];
-        [self.view setBackgroundColor:[UIColor whiteColor]];
     } else {
-        [UIView animateWithDuration:0.3 animations:^{
-            [sender setHighlightedColorButton];
-        }];
+        [sender setHighlightedColorButton];
         [self.myDrawingView.colorPalette addObject:sender];
         if (self.myDrawingView.colorPalette.count == 4) {
             [self.myDrawingView.colorPalette.firstObject setDefaultColorButton:self.myDrawingView.colorPalette.firstObject.backgroundColor];

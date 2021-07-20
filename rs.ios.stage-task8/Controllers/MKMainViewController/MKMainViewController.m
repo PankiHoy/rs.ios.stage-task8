@@ -182,9 +182,6 @@
     UIGraphicsEndImageContext();
     NSArray *activityItems = @[img];
     UIActivityViewController *activityViewControntroller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityViewControntroller.excludedActivityTypes = @[];
-    activityViewControntroller.popoverPresentationController.sourceView = self.view;
-    activityViewControntroller.popoverPresentationController.sourceRect = CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/4, 0, 0);
     [self presentViewController:activityViewControntroller animated:YES completion:nil];
 }
 
@@ -204,6 +201,7 @@
         self.navigationController.navigationBar.alpha = 0.5;
     } else {
         [self.timer invalidate];
+        self.timer = nil;
         [self.paletteButton setDefault];
         [self changeToResetButton:NO];
         [self.timerButton setDefault];

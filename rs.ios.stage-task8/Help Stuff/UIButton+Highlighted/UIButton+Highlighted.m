@@ -34,14 +34,18 @@
 }
 
 -(void)setHighlightedColorButton {
-    [self setFrame:CGRectMake(2, 2, 36, 36)];
-    [self.layer setCornerRadius:8.0f];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self setFrame:CGRectMake(2, 2, 36, 36)];
+        [self.layer setCornerRadius:8.0f];
+    }];
 }
 
 -(void)setDefaultColorButton:(UIColor *)color {
-    self.backgroundColor = color;
-    [self setFrame:CGRectMake(8, 8, 24, 24)];
-    [self.layer setCornerRadius:6.0f];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self setFrame:CGRectMake(8, 8, 24, 24)];
+        [self.layer setCornerRadius:6.0f];
+        self.backgroundColor = color;
+    }];
 }
 
 @end
